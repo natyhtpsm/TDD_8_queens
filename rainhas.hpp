@@ -1,21 +1,21 @@
-#ifndef RAINHAS_HPP_
-#define RAINHAS_HPP_
+#ifndef TABULEIRO_HPP_
+#define TABULEIRO_HPP_
 
 #include <string>
 #include <vector>
 #include <utility>
 
 const int TAMANHO = 8;
-const bool VERBOSE = false;
+const bool DEBUG = false;
 
-int verifica_solucao(const std::string& arquivo);
-bool arquivo_para_matriz(const std::string& arquivo_txt, char tabuleiro[TAMANHO][TAMANHO]);
-bool verifica_rainhas(char tabuleiro[TAMANHO][TAMANHO]);
+int verificar_solucao(const std::string& arquivo);
+bool carregar_tabuleiro(const std::string& arquivo_txt, char tabuleiro[TAMANHO][TAMANHO]);
+bool contar_rainhas(char tabuleiro[TAMANHO][TAMANHO]);
 int ataques(char tabuleiro[TAMANHO][TAMANHO]);
-std::string cria_nome_arquivo(std::string diretorio);
-std::vector<std::pair<int, int>> posicoes_rainhas(char tabuleiro[TAMANHO][TAMANHO]);
-std::vector<std::string> possiveis_ataques(const std::vector<std::pair<int, int>>& rainhas);
-bool registra_ataques(std::string nome_arquivo, const std::vector<std::string>& ataques);
-void imprime_tabuleiro(char tabuleiro[TAMANHO][TAMANHO]);
+std::string nome_arquivo(std::string diretorio);
+std::vector<std::pair<int, int>> encontrar_rainhas(char tabuleiro[TAMANHO][TAMANHO]);
+std::vector<std::string> ataques_possiveis(const std::vector<std::pair<int, int>>& rainhas);
+bool salvar_ataques(std::string nome_arquivo, const std::vector<std::string>& ataques);
+void exibir_tabuleiro(char tabuleiro[TAMANHO][TAMANHO]);
 
-#endif  // RAINHAS_HPP_
+#endif  // TABULEIRO_HPP_
