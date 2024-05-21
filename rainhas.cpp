@@ -1,40 +1,63 @@
-#include <string>
-#include <vector>
-#include "./romanos.hpp"
+#include <stdio.h>
+#include "rainhas.hpp"
 
-std::string decimal_p_romano(int decimal) {
-  std::string romano = "";
-  std::vector<std::pair<int, std::string>> algarismos = {
-    {1000, "M"},
-    {900, "CM"},
-    {500, "D"},
-    {400, "CD"},
-    {100, "C"},
-    {90, "XC"},
-    {50, "L"},
-    {40, "XL"},
-    {10, "X"},
-    {9, "IX"},
-    {5, "V"},
-    {4, "IV"},
-    {1, "I"}
-  };
-
-  for (auto& par : algarismos) {
-    while (decimal >= par.first) {
-      romano += par.second;
-      decimal -= par.first;
+int verifica_solucao(const char* tabuleiro[8]) {
+    int count_rainhas = 0;
+    for (int i = 0; i < 8; ++i) {
+        for (int j = 0; j < 8; ++j) {
+            if (tabuleiro[i][j] == '1') {
+                count_rainhas++;
+            } else if (tabuleiro[i][j] != '0') {
+                return -1;
+            }
+        }
     }
-  }
-
-  return romano;
+    if (count_rainhas != 8) return -1;
+    for (int i = 0; i < 8; ++i) {
+        for (int j = 0; j < 8; ++j) {
+            if (tabuleiro[i][j] == '1') {
+                for (int k = 0; k < 8; ++k) {
+                    if ((k != j && tabuleiro[i][k] == '1') || (k != i && tabuleiro[k][j] == '1')) {
+                        return 0;
+                    }
+                }
+                for (int k = 1; k < 8; ++k) {
+                    if ((i + k < 8 && j + k < 8 && tabuleiro[i + k][j + k] == '1') ||
+                        (i + k < 8 && j - k >= 0 && tabuleiro[i + k][j - k] == '1') ||
+                        (i - k >= 0 && j + k < 8 && tabuleiro[i - k][j + k] == '1') ||
+                        (i - k >= 0 && j - k >= 0 && tabuleiro[i - k][j - k] == '1')) {
+                        return 0;
+                    }
+                }
+            }
+        }
+    }
+    return 1;
 }
 
-int romanos_para_decimal(const char* num_romano) {
-  for (int i = 0; i < 3000; i++) {
-    if (std::string(num_romano) == decimal_p_romano(i + 1)) {
-      return i + 1;
+void salva_ataques(const char* tabuleiro[8], const char* filename) {
+    FILE* file = fopen(filename, "w");
+    if (!file) return;
+    
+    for (int i = 0; i < 8; ++i) {
+        for (int j = 0; j < 8; ++j) {
+            if (tabuleiro[i][j] == '1') {
+                for (int k = 1; k < 8; ++k) {
+                    if (i + k < 8 && j + k < 8 && tabuleiro[i + k][j + k] == '1') {
+                        fprintf(file, "%d,%d %d,%d\n", i, j, i + k, j + k);
+                    }
+                    if (i + k < 8 && j - k >= 0 && tabuleiro[i + k][j - k] == '1') {
+                        fprintf(file, "%d,%d %d,%d\n", i, j, i + k, j - k);
+                    }
+                    if (i - k >= 0 && j + k < 8 && tabuleiro[i - k][j + k] == '1') {
+                        fprintf(file, "%d,%d %d,%d\n", i, j, i - k, j + k);
+                    }
+                    if (i - k >= 0 && j - k >= 0 && tabuleiro[i - k][j - k] == '1') {
+                        fprintf(file, "%d,%d %d,%d\n", i, j, i - k, j - k);
+                    }
+                }
+            }
+        }
     }
-  }
-  return -1;
+    fclose(file);
 }
