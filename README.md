@@ -1,4 +1,4 @@
-# Conversor de Números Romanos para Decimais
+# Problema das 8 rainhas
 
 ## 📝 Descrição
 
