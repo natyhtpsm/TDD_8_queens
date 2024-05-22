@@ -57,3 +57,28 @@ TEST_CASE("Tabuleiro inválido (tamanho incorreto)", "[verificar_solucao]") {
     REQUIRE(verificar_solucao(reinterpret_cast<const char
     (*)[TAMANHO]>(tabuleiro)) == -1);
 }
+
+TEST_CASE("Solucao inválido (ataque entre rainhas)", "[verificar_solucao]") {
+    const char tabuleiro[TAMANHO][TAMANHO] = {
+        {'0', '0', '0', '0', '1', '0', '0', '0'},
+        {'0', '1', '0', '0', '0', '0', '0', '0'},
+        {'0', '0', '0', '1', '0', '0', '0', '0'},
+        {'0', '0', '0', '0', '0', '0', '1', '0'},
+        {'0', '0', '1', '0', '1', '0', '0', '0'},
+        {'0', '0', '0', '0', '0', '0', '0', '1'},
+        {'0', '0', '0', '0', '0', '1', '0', '0'},
+        {'0', '0', '0', '0', '0', '0', '0', '0'}
+    };
+    const char tabuleiro2[TAMANHO][TAMANHO] = {
+        {'0', '0', '0', '0', '1', '0', '0', '1'},
+        {'0', '0', '0', '0', '0', '0', '0', '0'},
+        {'0', '0', '0', '1', '0', '0', '0', '0'},
+        {'0', '0', '0', '0', '0', '0', '1', '0'},
+        {'0', '0', '1', '0', '0', '0', '0', '0'},
+        {'0', '0', '0', '0', '0', '0', '0', '1'},
+        {'0', '0', '0', '0', '0', '1', '0', '0'},
+        {'1', '0', '0', '0', '0', '0', '0', '0'}
+    };
+    REQUIRE(verificar_solucao(tabuleiro) == 0);
+    REQUIRE(verificar_solucao(tabuleiro2) == 0);
+}
