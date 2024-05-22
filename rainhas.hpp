@@ -18,4 +18,4 @@ std::vector<std::string> ataques_possiveis(const std::vector<std::pair<int, int>
 bool salvar_ataques(std::string nome_arquivo, const std::vector<std::string>& ataques);
 void exibir_tabuleiro(char tabuleiro[TAMANHO][TAMANHO]);
 
-#endif  // TABULEIRO_HPP_
+#endif  // RAINHAS_HPP_
