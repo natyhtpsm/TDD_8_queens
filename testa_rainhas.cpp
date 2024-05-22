@@ -83,4 +83,17 @@ TEST_CASE("Solucao inválido (ataque entre rainhas)", "[verificar_solucao]") {
     REQUIRE(verificar_solucao(tabuleiro2) == 0);
 }
 
-
+TEST_CASE("Tabuleiro com entradas inválidas (caracteres)",
+"[verificar_solucao]") {
+    const char tabuleiro[TAMANHO][TAMANHO] = {
+        {'0', '0', '0', '0', '1', '0', '0', '0'},
+        {'0', '1', '0', '0', '0', '0', '0', '0'},
+        {'0', '0', '0', '1', '0', '0', '0', 'X'},
+        {'0', '0', '0', '0', '0', '0', '1', '0'},
+        {'0', '0', '1', '0', '0', '0', '0', '0'},
+        {'0', '0', '0', '0', '0', '0', '0', '1'},
+        {'0', '0', '0', '0', '0', '1', '0', '0'},
+        {'1', '0', '0', '0', '0', '0', '0', '0'}
+    };
+    REQUIRE(verificar_solucao(tabuleiro) == -1);
+}
