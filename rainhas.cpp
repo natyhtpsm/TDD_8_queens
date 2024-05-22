@@ -11,25 +11,14 @@ bool carregar_tabuleiro(const std::string& arquivo_txt, char tabuleiro[TAMANHO][
     for (int i = 0; i < TAMANHO; ++i) {
         if (!std::getline(arquivo, linha) || linha.length() != TAMANHO) return false;
         for (int j = 0; j < TAMANHO; ++j) {
+            if (linha[j] != '0' && linha[j] != '1') return false;  // Verificar caracteres válidos
             tabuleiro[i][j] = linha[j];
         }
     }
     return true;
 }
 
-bool carregar_tabuleiro_da_string(const std::string& conteudo, char tabuleiro[TAMANHO][TAMANHO]) {
-    std::istringstream stream(conteudo);
-    std::string linha;
-    for (int i = 0; i < TAMANHO; ++i) {
-        if (!std::getline(stream, linha) || linha.length() != TAMANHO) return false;
-        for (int j = 0; j < TAMANHO; ++j) {
-            tabuleiro[i][j] = linha[j];
-        }
-    }
-    return true;
-}
-
-bool contar_rainhas(char tabuleiro[TAMANHO][TAMANHO]) {
+bool contar_rainhas(const char tabuleiro[TAMANHO][TAMANHO]) {
     int count = 0;
     for (int i = 0; i < TAMANHO; ++i) {
         for (int j = 0; j < TAMANHO; ++j) {
@@ -39,10 +28,10 @@ bool contar_rainhas(char tabuleiro[TAMANHO][TAMANHO]) {
     return count == 8;
 }
 
-int ataques(char tabuleiro[TAMANHO][TAMANHO]) {
+int ataques(const char tabuleiro[TAMANHO][TAMANHO]) {
     auto rainhas = encontrar_rainhas(tabuleiro);
     auto ataques = ataques_possiveis(rainhas);
-    return ataques.empty() ? 1 : 0;
+    return ataques.empty() ? 1 : 0;  
 }
 
 std::string nome_arquivo(std::string diretorio) {
@@ -50,7 +39,7 @@ std::string nome_arquivo(std::string diretorio) {
     return diretorio + "/ataques_" + std::to_string(count++) + ".txt";
 }
 
-std::vector<std::pair<int, int>> encontrar_rainhas(char tabuleiro[TAMANHO][TAMANHO]) {
+std::vector<std::pair<int, int>> encontrar_rainhas(const char tabuleiro[TAMANHO][TAMANHO]) {
     std::vector<std::pair<int, int>> posicoes;
     for (int i = 0; i < TAMANHO; ++i) {
         for (int j = 0; j < TAMANHO; ++j) {
@@ -84,7 +73,7 @@ bool salvar_ataques(std::string nome_arquivo, const std::vector<std::string>& at
     return true;
 }
 
-void exibir_tabuleiro(char tabuleiro[TAMANHO][TAMANHO]) {
+void exibir_tabuleiro(const char tabuleiro[TAMANHO][TAMANHO]) {
     for (int i = 0; i < TAMANHO; ++i) {
         for (int j = 0; j < TAMANHO; ++j) {
             std::cout << tabuleiro[i][j];
@@ -96,6 +85,11 @@ void exibir_tabuleiro(char tabuleiro[TAMANHO][TAMANHO]) {
 int verificar_solucao(const std::string& arquivo) {
     char tabuleiro[TAMANHO][TAMANHO];
     if (!carregar_tabuleiro(arquivo, tabuleiro)) return -1;
+    if (!contar_rainhas(tabuleiro)) return -1;
+    return ataques(tabuleiro);
+}
+
+int verificar_solucao(const char tabuleiro[TAMANHO][TAMANHO]) {
     if (!contar_rainhas(tabuleiro)) return -1;
     return ataques(tabuleiro);
 }
