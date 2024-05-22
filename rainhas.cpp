@@ -3,21 +3,6 @@
 #include <sstream>
 #include <iostream>
 
-bool carregar_tabuleiro(const std::string& arquivo_txt, char tabuleiro[TAMANHO][TAMANHO]) {
-    std::ifstream arquivo(arquivo_txt);
-    if (!arquivo.is_open()) return false;
-
-    std::string linha;
-    for (int i = 0; i < TAMANHO; ++i) {
-        if (!std::getline(arquivo, linha) || linha.length() != TAMANHO) return false;
-        for (int j = 0; j < TAMANHO; ++j) {
-            if (linha[j] != '0' && linha[j] != '1') return false;  // Verificar caracteres válidos
-            tabuleiro[i][j] = linha[j];
-        }
-    }
-    return true;
-}
-
 bool contar_rainhas(const char tabuleiro[TAMANHO][TAMANHO]) {
     int count = 0;
     for (int i = 0; i < TAMANHO; ++i) {
@@ -82,12 +67,12 @@ void exibir_tabuleiro(const char tabuleiro[TAMANHO][TAMANHO]) {
     }
 }
 
-int verificar_solucao(const std::string& arquivo) {
-    char tabuleiro[TAMANHO][TAMANHO];
-    if (!carregar_tabuleiro(arquivo, tabuleiro)) return -1;
-    if (!contar_rainhas(tabuleiro)) return -1;
-    return ataques(tabuleiro);
-}
+// int verificar_solucao(const std::string& arquivo) {
+//     char tabuleiro[TAMANHO][TAMANHO];
+//     if (!carregar_tabuleiro(arquivo, tabuleiro)) return -1;
+//     if (!contar_rainhas(tabuleiro)) return -1;
+//     return ataques(tabuleiro);
+// }
 
 int verificar_solucao(const char tabuleiro[TAMANHO][TAMANHO]) {
     if (!contar_rainhas(tabuleiro)) return -1;

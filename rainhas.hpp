@@ -8,7 +8,7 @@
 const int TAMANHO = 8;
 const bool DEBUG = false;
 
-int verificar_solucao(const std::string& arquivo);
+// int verificar_solucao(const std::string& arquivo);
 int verificar_solucao(const char tabuleiro[TAMANHO][TAMANHO]);
 bool carregar_tabuleiro(const std::string& arquivo_txt, char tabuleiro[TAMANHO][TAMANHO]);
 bool contar_rainhas(const char tabuleiro[TAMANHO][TAMANHO]);    
