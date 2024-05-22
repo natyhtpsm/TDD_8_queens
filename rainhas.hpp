@@ -1,3 +1,5 @@
+// Copyright 2024 Nathália P. Assis
+
 #ifndef RAINHAS_HPP_
 #define RAINHAS_HPP_
 
@@ -16,7 +18,8 @@ std::vector<std::pair<int, int>>
 encontrar_rainhas(const char tabuleiro[TAMANHO][TAMANHO]);
 std::vector<std::string>
 ataques_possiveis(const std::vector<std::pair<int, int>>& rainhas);
-bool salvar_ataques(const std::string& diretorio, const std::vector<std::string>& ataques);
+bool salvar_ataques(const std::string& diretorio,
+const std::vector<std::string>& ataques);
 void exibir_tabuleiro(const char tabuleiro[TAMANHO][TAMANHO]);
 
 #endif  // RAINHAS_HPP_

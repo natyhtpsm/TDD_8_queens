@@ -1,3 +1,5 @@
+// Copyright 2024 Nathália P. Assis
+
 #define CATCH_CONFIG_MAIN
 #include "./catch.hpp"
 #include "./rainhas.hpp"
