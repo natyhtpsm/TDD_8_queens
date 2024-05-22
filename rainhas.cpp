@@ -73,14 +73,6 @@ int ataques(const char tabuleiro[TAMANHO][TAMANHO]) {
   auto ataques = ataques_possiveis(rainhas);
   return ataques.empty() ? 1 : 0;
 }
-void exibir_tabuleiro(const char tabuleiro[TAMANHO][TAMANHO]) {
-  for (int i = 0; i < TAMANHO; ++i) {
-      for (int j = 0; j < TAMANHO; ++j) {
-        std::cout << tabuleiro[i][j];
-      }
-    std::cout << "\n";
-  }
-}
 
 int verificar_solucao(const char tabuleiro[TAMANHO][TAMANHO]) {
   if (!contar_rainhas(tabuleiro)) return -1;
