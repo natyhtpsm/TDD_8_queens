@@ -17,6 +17,18 @@ bool carregar_tabuleiro(const std::string& arquivo_txt, char tabuleiro[TAMANHO][
     return true;
 }
 
+bool carregar_tabuleiro_da_string(const std::string& conteudo, char tabuleiro[TAMANHO][TAMANHO]) {
+    std::istringstream stream(conteudo);
+    std::string linha;
+    for (int i = 0; i < TAMANHO; ++i) {
+        if (!std::getline(stream, linha) || linha.length() != TAMANHO) return false;
+        for (int j = 0; j < TAMANHO; ++j) {
+            tabuleiro[i][j] = linha[j];
+        }
+    }
+    return true;
+}
+
 bool contar_rainhas(char tabuleiro[TAMANHO][TAMANHO]) {
     int count = 0;
     for (int i = 0; i < TAMANHO; ++i) {

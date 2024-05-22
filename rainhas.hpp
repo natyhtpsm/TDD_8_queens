@@ -10,6 +10,7 @@ const bool DEBUG = false;
 
 int verificar_solucao(const std::string& arquivo);
 bool carregar_tabuleiro(const std::string& arquivo_txt, char tabuleiro[TAMANHO][TAMANHO]);
+bool carregar_tabuleiro_da_string(const std::string& conteudo, char tabuleiro[TAMANHO][TAMANHO]);
 bool contar_rainhas(char tabuleiro[TAMANHO][TAMANHO]);
 int ataques(char tabuleiro[TAMANHO][TAMANHO]);
 std::string nome_arquivo(std::string diretorio);
