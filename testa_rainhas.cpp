@@ -99,11 +99,22 @@ TEST_CASE("Solucao inválida (ataque entre rainhas)", "[verificar_solucao]") {
     {'0', '1', '0', '0', '0', '0', '0', '0'},
     {'0', '0', '0', '1', '0', '0', '0', '0'}
     };
+    const char tabuleiro5[TAMANHO][TAMANHO] = {
+    {'0', '0', '1', '0', '0', '0', '0', '0'},
+    {'0', '0', '0', '0', '1', '0', '0', '0'},
+    {'0', '0', '0', '0', '0', '1', '0', '0'},
+    {'0', '0', '0', '0', '0', '0', '0', '1'},
+    {'0', '0', '0', '0', '0', '0', '1', '0'},
+    {'0', '0', '0', '1', '0', '0', '0', '0'},
+    {'0', '1', '0', '0', '0', '0', '0', '0'},
+    {'1', '0', '0', '0', '0', '0', '0', '0'}
+    };
 
     REQUIRE(verificar_solucao(tabuleiro) == 0);
     REQUIRE(verificar_solucao(tabuleiro2) == 0);
     REQUIRE(verificar_solucao(tabuleiro3) == 0);
     REQUIRE(verificar_solucao(tabuleiro4) == 0);
+    REQUIRE(verificar_solucao(tabuleiro5) == 0);
 }
 
 TEST_CASE("Tabuleiro com entradas inválidas (caracteres)",
