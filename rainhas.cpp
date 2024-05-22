@@ -81,5 +81,15 @@ void exibir_tabuleiro(const char tabuleiro[TAMANHO][TAMANHO]) {
 
 int verificar_solucao(const char tabuleiro[TAMANHO][TAMANHO]) {
     if (!contar_rainhas(tabuleiro)) return -1;
-    return ataques(tabuleiro);
+    int resultado = ataques(tabuleiro);
+    
+    if (resultado == 0) {
+      auto rainhas = encontrar_rainhas(tabuleiro);
+      auto ataques = ataques_possiveis(rainhas);
+      if(!salvar_ataques("ataques", ataques)){
+        std::cout << "Erro ao salvar arquivo de ataques." << std::endl;
+      }
+    }
+
+    return resultado;
 }

@@ -58,7 +58,7 @@ TEST_CASE("Tabuleiro inválido (tamanho incorreto)", "[verificar_solucao]") {
     (*)[TAMANHO]>(tabuleiro)) == -1);
 }
 
-TEST_CASE("Solucao inválido (ataque entre rainhas)", "[verificar_solucao]") {
+TEST_CASE("Solucao inválida (ataque entre rainhas)", "[verificar_solucao]") {
     const char tabuleiro[TAMANHO][TAMANHO] = {
         {'0', '0', '0', '0', '1', '0', '0', '0'},
         {'0', '1', '0', '0', '0', '0', '0', '0'},
