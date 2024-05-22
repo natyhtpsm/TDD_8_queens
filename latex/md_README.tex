@@ -1,0 +1,26 @@
+\hypertarget{md_README_autotoc_md1}{}\doxysection{📝 Descrição}\label{md_README_autotoc_md1}
+Este projeto resolve o problema das 8 rainhas, onde o objetivo é posicionar 8 rainhas em um tabuleiro de xadrez 8x8 de forma que nenhuma rainha ataque a outra.\hypertarget{md_README_autotoc_md2}{}\doxysection{🚀 Funcionalidades}\label{md_README_autotoc_md2}
+
+\begin{DoxyItemize}
+\item Verificação de soluções para o problema das 8 rainhas.
+\item Detecção de ataques entre rainhas e registro em arquivos.
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md3}{}\doxysection{💻 Métodos Utilizados}\label{md_README_autotoc_md3}
+
+\begin{DoxyItemize}
+\item {\bfseries{carregar\+\_\+tabuleiro}}\+: Lê um arquivo .txt contendo um tabuleiro e carrega em uma matriz 8x8.
+\item {\bfseries{contar\+\_\+rainhas}}\+: Verifica se há exatamente 8 rainhas no tabuleiro.
+\item {\bfseries{ataques}}\+: Verifica se há ataques entre rainhas no tabuleiro.
+\item {\bfseries{encontrar\+\_\+rainhas}}\+: Encontra as posições das rainhas no tabuleiro.
+\item {\bfseries{ataques\+\_\+possiveis}}\+: Identifica todos os ataques possíveis entre rainhas.
+\item {\bfseries{salvar\+\_\+ataques}}\+: Salva os ataques detectados em um arquivo.
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md4}{}\doxysection{🧪 Testes}\label{md_README_autotoc_md4}
+Os testes são realizados utilizando a biblioteca Catch. Eles incluem verificação de soluções válidas e inválidas, bem como a detecção correta de ataques entre rainhas.\hypertarget{md_README_autotoc_md5}{}\doxysection{📖 Projeto}\label{md_README_autotoc_md5}
+O projeto está estruturado da seguinte forma\+:
+\begin{DoxyItemize}
+\item {\bfseries{ataques/}}\+: Contém arquivos de texto com registros de ataques entre rainhas.
+\item {\bfseries{doxygen\+\_\+files/}}\+: Contém os arquivos gerados pelo Doxygen.
+\item {\bfseries{raiz do projeto}}\+: Contém os arquivos fonte({\ttfamily \mbox{\hyperlink{rainhas_8cpp}{rainhas.\+cpp}}}, {\ttfamily \mbox{\hyperlink{rainhas_8hpp}{rainhas.\+hpp}}}, {\ttfamily \mbox{\hyperlink{testa__rainhas_8cpp}{testa\+\_\+rainhas.\+cpp}}}).
+\item {\bfseries{makefile}}\+: Arquivo Makefile para compilar o projeto.
+\item {\bfseries{cpplint.\+py}}\+: Script para verificação do estilo de código.
+\item {\bfseries{Doxyfile}}\+: Arquivo de configuração do Doxygen. 
+\end{DoxyItemize}

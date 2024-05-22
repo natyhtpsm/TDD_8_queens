@@ -1,0 +1,156 @@
+\hypertarget{rainhas_8cpp}{}\doxysection{rainhas.\+cpp File Reference}
+\label{rainhas_8cpp}\index{rainhas.cpp@{rainhas.cpp}}
+{\ttfamily \#include \char`\"{}./rainhas.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+Include dependency graph for rainhas.\+cpp\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{rainhas_8cpp_aed57aebcd33ad45e38280c5bc527aea4}{contar\+\_\+rainhas}} (const char tabuleiro\mbox{[}TAMANHO\mbox{]}\mbox{[}TAMANHO\mbox{]})
+\begin{DoxyCompactList}\small\item\em Conta o número de rainhas no tabuleiro e verifica se existem caracteres inválidos. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{rainhas_8cpp_a3b17264796d2d1be98bc06040b86a6f3}{nome\+\_\+arquivo}} (const std\+::string \&diretorio)
+\begin{DoxyCompactList}\small\item\em Gera um nome de arquivo único para armazenar os ataques. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::pair$<$ int, int $>$ $>$ \mbox{\hyperlink{rainhas_8cpp_a3dec9a847cdfc33529b1c01ee7fe61b3}{encontrar\+\_\+rainhas}} (const char tabuleiro\mbox{[}TAMANHO\mbox{]}\mbox{[}TAMANHO\mbox{]})
+\begin{DoxyCompactList}\small\item\em Encontra a posição de todas as rainhas no tabuleiro. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{rainhas_8cpp_afed9ccb28e11b0621c0cade9dee46053}{ataques\+\_\+possiveis}} (const std\+::vector$<$ std\+::pair$<$ int, int $>$$>$ \&rainhas)
+\begin{DoxyCompactList}\small\item\em Identifica todos os ataques possíveis entre as rainhas no tabuleiro. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{rainhas_8cpp_a3eea5d862525f02ad9e5f795991657f4}{salvar\+\_\+ataques}} (const std\+::string \&diretorio, const std\+::vector$<$ std\+::string $>$ \&\mbox{\hyperlink{rainhas_8hpp_ace01046c816e160d6114ab8077ec90cd}{ataques}})
+\begin{DoxyCompactList}\small\item\em Salva os ataques identificados em um arquivo. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{rainhas_8cpp_ace01046c816e160d6114ab8077ec90cd}{ataques}} (const char tabuleiro\mbox{[}TAMANHO\mbox{]}\mbox{[}TAMANHO\mbox{]})
+\begin{DoxyCompactList}\small\item\em Verifica se há ataques entre as rainhas no tabuleiro. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{rainhas_8cpp_ade5eb406b180a92eac7dd6873d31830c}{verificar\+\_\+solucao}} (const char tabuleiro\mbox{[}TAMANHO\mbox{]}\mbox{[}TAMANHO\mbox{]})
+\begin{DoxyCompactList}\small\item\em Verifica a solução do problema das 8 rainhas. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{rainhas_8cpp_ace01046c816e160d6114ab8077ec90cd}\label{rainhas_8cpp_ace01046c816e160d6114ab8077ec90cd}} 
+\index{rainhas.cpp@{rainhas.cpp}!ataques@{ataques}}
+\index{ataques@{ataques}!rainhas.cpp@{rainhas.cpp}}
+\doxysubsubsection{\texorpdfstring{ataques()}{ataques()}}
+{\footnotesize\ttfamily int ataques (\begin{DoxyParamCaption}\item[{const char}]{tabuleiro\mbox{[}\+TAMANHO\mbox{]}\mbox{[}\+TAMANHO\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Verifica se há ataques entre as rainhas no tabuleiro. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tabuleiro} & Matriz 8x8 representando o tabuleiro. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 se não houver ataques, 0 se houver ataques. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{rainhas_8cpp_afed9ccb28e11b0621c0cade9dee46053}\label{rainhas_8cpp_afed9ccb28e11b0621c0cade9dee46053}} 
+\index{rainhas.cpp@{rainhas.cpp}!ataques\_possiveis@{ataques\_possiveis}}
+\index{ataques\_possiveis@{ataques\_possiveis}!rainhas.cpp@{rainhas.cpp}}
+\doxysubsubsection{\texorpdfstring{ataques\_possiveis()}{ataques\_possiveis()}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::string$>$ ataques\+\_\+possiveis (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::pair$<$ int, int $>$$>$ \&}]{rainhas }\end{DoxyParamCaption})}
+
+
+
+Identifica todos os ataques possíveis entre as rainhas no tabuleiro. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rainhas} & Vetor de pares representando as posições das rainhas. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Um vetor de strings representando os ataques. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{rainhas_8cpp_aed57aebcd33ad45e38280c5bc527aea4}\label{rainhas_8cpp_aed57aebcd33ad45e38280c5bc527aea4}} 
+\index{rainhas.cpp@{rainhas.cpp}!contar\_rainhas@{contar\_rainhas}}
+\index{contar\_rainhas@{contar\_rainhas}!rainhas.cpp@{rainhas.cpp}}
+\doxysubsubsection{\texorpdfstring{contar\_rainhas()}{contar\_rainhas()}}
+{\footnotesize\ttfamily bool contar\+\_\+rainhas (\begin{DoxyParamCaption}\item[{const char}]{tabuleiro\mbox{[}\+TAMANHO\mbox{]}\mbox{[}\+TAMANHO\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Conta o número de rainhas no tabuleiro e verifica se existem caracteres inválidos. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tabuleiro} & Matriz 8x8 representando o tabuleiro. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se houver exatamente 8 rainhas e nenhum caractere inválido, false caso contrário. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{rainhas_8cpp_a3dec9a847cdfc33529b1c01ee7fe61b3}\label{rainhas_8cpp_a3dec9a847cdfc33529b1c01ee7fe61b3}} 
+\index{rainhas.cpp@{rainhas.cpp}!encontrar\_rainhas@{encontrar\_rainhas}}
+\index{encontrar\_rainhas@{encontrar\_rainhas}!rainhas.cpp@{rainhas.cpp}}
+\doxysubsubsection{\texorpdfstring{encontrar\_rainhas()}{encontrar\_rainhas()}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::pair$<$int, int$>$ $>$ encontrar\+\_\+rainhas (\begin{DoxyParamCaption}\item[{const char}]{tabuleiro\mbox{[}\+TAMANHO\mbox{]}\mbox{[}\+TAMANHO\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Encontra a posição de todas as rainhas no tabuleiro. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tabuleiro} & Matriz 8x8 representando o tabuleiro. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Um vetor de pares representando as posições das rainhas. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{rainhas_8cpp_a3b17264796d2d1be98bc06040b86a6f3}\label{rainhas_8cpp_a3b17264796d2d1be98bc06040b86a6f3}} 
+\index{rainhas.cpp@{rainhas.cpp}!nome\_arquivo@{nome\_arquivo}}
+\index{nome\_arquivo@{nome\_arquivo}!rainhas.cpp@{rainhas.cpp}}
+\doxysubsubsection{\texorpdfstring{nome\_arquivo()}{nome\_arquivo()}}
+{\footnotesize\ttfamily std\+::string nome\+\_\+arquivo (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{diretorio }\end{DoxyParamCaption})}
+
+
+
+Gera um nome de arquivo único para armazenar os ataques. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em diretorio} & Diretório onde o arquivo será salvo. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+O nome do arquivo gerado. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{rainhas_8cpp_a3eea5d862525f02ad9e5f795991657f4}\label{rainhas_8cpp_a3eea5d862525f02ad9e5f795991657f4}} 
+\index{rainhas.cpp@{rainhas.cpp}!salvar\_ataques@{salvar\_ataques}}
+\index{salvar\_ataques@{salvar\_ataques}!rainhas.cpp@{rainhas.cpp}}
+\doxysubsubsection{\texorpdfstring{salvar\_ataques()}{salvar\_ataques()}}
+{\footnotesize\ttfamily bool salvar\+\_\+ataques (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{diretorio,  }\item[{const std\+::vector$<$ std\+::string $>$ \&}]{ataques }\end{DoxyParamCaption})}
+
+
+
+Salva os ataques identificados em um arquivo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em diretorio} & Diretório onde o arquivo será salvo. \\
+\hline
+{\em ataques} & Vetor de strings representando os ataques. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se o arquivo for salvo com sucesso, false caso contrário. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{rainhas_8cpp_ade5eb406b180a92eac7dd6873d31830c}\label{rainhas_8cpp_ade5eb406b180a92eac7dd6873d31830c}} 
+\index{rainhas.cpp@{rainhas.cpp}!verificar\_solucao@{verificar\_solucao}}
+\index{verificar\_solucao@{verificar\_solucao}!rainhas.cpp@{rainhas.cpp}}
+\doxysubsubsection{\texorpdfstring{verificar\_solucao()}{verificar\_solucao()}}
+{\footnotesize\ttfamily int verificar\+\_\+solucao (\begin{DoxyParamCaption}\item[{const char}]{tabuleiro\mbox{[}\+TAMANHO\mbox{]}\mbox{[}\+TAMANHO\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Verifica a solução do problema das 8 rainhas. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tabuleiro} & Matriz 8x8 representando o tabuleiro. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 se a solução é válida, 0 se há ataques entre rainhas, -\/1 se a configuração é inválida. 
+\end{DoxyReturn}
