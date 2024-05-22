@@ -5,11 +5,17 @@
 
 bool contar_rainhas(const char tabuleiro[TAMANHO][TAMANHO]) {
     int count = 0;
+    bool caracteres_validos = true;
     for (int i = 0; i < TAMANHO; ++i) {
         for (int j = 0; j < TAMANHO; ++j) {
-            if (tabuleiro[i][j] == '1') count++;
+            if (tabuleiro[i][j] == '1') {
+              count++;
+            } else if (tabuleiro[i][j] != '0'){
+              caracteres_validos = false;
+            }
         }
     }
+    if (!caracteres_validos) return false;
     return count == 8;
 }
 

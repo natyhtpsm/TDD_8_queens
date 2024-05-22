@@ -82,3 +82,5 @@ TEST_CASE("Solucao inválido (ataque entre rainhas)", "[verificar_solucao]") {
     REQUIRE(verificar_solucao(tabuleiro) == 0);
     REQUIRE(verificar_solucao(tabuleiro2) == 0);
 }
+
+
