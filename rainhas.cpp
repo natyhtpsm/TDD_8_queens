@@ -1,4 +1,4 @@
-#include "rainhas.hpp"
+#include "./rainhas.hpp"
 #include <fstream>
 #include <sstream>
 #include <iostream>
@@ -16,7 +16,7 @@ bool contar_rainhas(const char tabuleiro[TAMANHO][TAMANHO]) {
 int ataques(const char tabuleiro[TAMANHO][TAMANHO]) {
     auto rainhas = encontrar_rainhas(tabuleiro);
     auto ataques = ataques_possiveis(rainhas);
-    return ataques.empty() ? 1 : 0;  
+    return ataques.empty() ? 1 : 0;
 }
 
 std::string nome_arquivo(std::string diretorio) {
@@ -24,7 +24,8 @@ std::string nome_arquivo(std::string diretorio) {
     return diretorio + "/ataques_" + std::to_string(count++) + ".txt";
 }
 
-std::vector<std::pair<int, int>> encontrar_rainhas(const char tabuleiro[TAMANHO][TAMANHO]) {
+std::vector<std::pair<int, int>>
+encontrar_rainhas(const char tabuleiro[TAMANHO][TAMANHO]) {
     std::vector<std::pair<int, int>> posicoes;
     for (int i = 0; i < TAMANHO; ++i) {
         for (int j = 0; j < TAMANHO; ++j) {
@@ -34,14 +35,19 @@ std::vector<std::pair<int, int>> encontrar_rainhas(const char tabuleiro[TAMANHO]
     return posicoes;
 }
 
-std::vector<std::string> ataques_possiveis(const std::vector<std::pair<int, int>>& rainhas) {
+std::vector<std::string>
+ataques_possiveis(const std::vector<std::pair<int, int>>& rainhas) {
     std::vector<std::string> ataques;
     for (size_t i = 0; i < rainhas.size(); ++i) {
         for (size_t j = i + 1; j < rainhas.size(); ++j) {
-            if (rainhas[i].first == rainhas[j].first || rainhas[i].second == rainhas[j].second ||
-                abs(rainhas[i].first - rainhas[j].first) == abs(rainhas[i].second - rainhas[j].second)) {
+            if (rainhas[i].first == rainhas[j].first ||
+            rainhas[i].second == rainhas[j].second ||
+                abs(rainhas[i].first - rainhas[j].first) ==
+                abs(rainhas[i].second - rainhas[j].second)) {
                 std::stringstream ss;
-                ss << rainhas[i].first << "," << rainhas[i].second << " " << rainhas[j].first << "," << rainhas[j].second;
+                ss << rainhas[i].first << "," <<
+                rainhas[i].second << " " << rainhas[j].first <<
+                "," << rainhas[j].second;
                 ataques.push_back(ss.str());
             }
         }
@@ -49,7 +55,8 @@ std::vector<std::string> ataques_possiveis(const std::vector<std::pair<int, int>
     return ataques;
 }
 
-bool salvar_ataques(std::string nome_arquivo, const std::vector<std::string>& ataques) {
+bool salvar_ataques(std::string nome_arquivo,
+const std::vector<std::string>& ataques) {
     std::ofstream arquivo(nome_arquivo);
     if (!arquivo.is_open()) return false;
     for (const auto& ataque : ataques) {
